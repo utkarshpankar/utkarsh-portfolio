@@ -36,6 +36,7 @@ export const profile = {
 
   heroCtas: [
     { label: 'View Projects', href: '#projects', variant: 'primary' as const },
+    { label: 'Download Resume', href: '#resume', variant: 'secondary' as const },
     { label: 'Get in Touch', href: '#contact', variant: 'secondary' as const },
   ],
 
