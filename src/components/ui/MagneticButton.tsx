@@ -8,6 +8,9 @@ interface MagneticButtonProps {
   className?: string
   strength?: number
   type?: 'button' | 'submit' | 'reset'
+  download?: string | boolean
+  target?: string
+  rel?: string
 }
 
 export function MagneticButton({
@@ -17,6 +20,9 @@ export function MagneticButton({
   className = '',
   strength = 0.35,
   type = 'button',
+  download,
+  target,
+  rel,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLAnchorElement & HTMLButtonElement>(null)
   const x = useMotionValue(0)
@@ -54,7 +60,13 @@ export function MagneticButton({
 
   if (href) {
     return (
-      <motion.a href={href} {...motionProps}>
+      <motion.a
+        href={href}
+        download={download}
+        target={target}
+        rel={rel}
+        {...motionProps}
+      >
         {children}
       </motion.a>
     )

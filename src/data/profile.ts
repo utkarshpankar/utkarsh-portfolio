@@ -15,12 +15,21 @@ export const profile = {
     { label: 'Projects', href: '#projects' },
     { label: 'Experience', href: '#experience' },
     { label: 'Skills', href: '#skills' },
+    { label: 'Resume', href: '#resume' },
     { label: 'Contact', href: '#contact' },
   ],
+
+  resume: {
+    file: '/resume/Utkarsh_Pankar_Resume.docx',
+    fileName: 'Utkarsh_Pankar_Resume.docx',
+    description:
+      'Full-Stack Developer skilled in React.js, Node.js, Express.js, and MongoDB — with experience building scalable web apps, RESTful APIs, and AI-powered solutions deployed on Vercel and Render.',
+  },
 
   social: {
     github: 'https://github.com/utkarshpankar',
     linkedin: 'https://www.linkedin.com/in/utkarsh-pankar-a156b31bb/',
+    portfolio: 'https://utkarsh-portfolio-lemon.vercel.app',
     phone: 'tel:+919294514076',
     email: 'mailto:utkarshpankar33@gmail.com',
   },
@@ -89,8 +98,8 @@ export const experience = [
       'Implemented new features and enhanced user experience for an e-commerce platform.',
       'Optimized frontend performance, improving application responsiveness across devices.',
       'Integrated REST APIs and collaborated with cross-functional teams to deliver high-quality solutions.',
-      'Built reusable React components and maintained a consistent design system.',
-      'Ensured cross-browser compatibility and accessibility standards across all UI components.',
+      'Built reusable React components and maintained a consistent design system, reducing development time for new features.',
+      'Ensured cross-browser compatibility and accessibility standards across all UI components, improving overall product quality.',
     ],
   },
 ]
