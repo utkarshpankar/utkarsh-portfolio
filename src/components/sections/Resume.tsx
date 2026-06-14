@@ -1,15 +1,34 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { Download, Eye, FileText, X } from 'lucide-react'
+import { Download, Eye, FileText, Loader2, X } from 'lucide-react'
 import { useState } from 'react'
 import { profile } from '../../data/profile'
+import { downloadResume } from '../../utils/downloadResume'
 import { MagneticButton } from '../ui/MagneticButton'
 import { SectionHeading } from '../ui/SectionHeading'
 
 export function Resume() {
   const [viewerOpen, setViewerOpen] = useState(false)
+  const [downloading, setDownloading] = useState(false)
   const { resume } = profile
 
   const viewerUrl = `${window.location.origin}${resume.file}`
+
+  const handleDownload = async () => {
+    if (downloading) return
+
+    setDownloading(true)
+    try {
+      await downloadResume(resume.file, resume.fileName)
+    } catch {
+      // Fallback: direct navigation if fetch/blob fails
+      const link = document.createElement('a')
+      link.href = resume.file
+      link.download = resume.fileName
+      link.click()
+    } finally {
+      setDownloading(false)
+    }
+  }
 
   return (
     <section id="resume" className="relative px-4 py-24 sm:px-6 sm:py-32">
@@ -63,18 +82,21 @@ export function Resume() {
 
             <div className="flex flex-col gap-3 sm:flex-row md:flex-col lg:flex-row">
               <MagneticButton
-                href={resume.file}
-                download={resume.fileName}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-r from-violet-600 to-violet-500 px-7 py-3.5 text-sm font-semibold text-white shadow-[0_0_40px_rgba(139,92,246,0.35)] transition-shadow hover:shadow-[0_0_60px_rgba(139,92,246,0.5)]"
+                onClick={handleDownload}
+                className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-r from-violet-600 to-violet-500 px-7 py-3.5 text-sm font-semibold text-white shadow-[0_0_40px_rgba(139,92,246,0.35)] transition-shadow hover:shadow-[0_0_60px_rgba(139,92,246,0.5)] disabled:opacity-70"
               >
                 <span
                   aria-hidden
                   className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full"
                 />
-                <Download className="relative size-4" />
-                <span className="relative">Download Resume</span>
+                {downloading ? (
+                  <Loader2 className="relative size-4 animate-spin" />
+                ) : (
+                  <Download className="relative size-4" />
+                )}
+                <span className="relative">
+                  {downloading ? 'Downloading…' : 'Download Resume'}
+                </span>
               </MagneticButton>
 
               <MagneticButton
@@ -117,21 +139,21 @@ export function Resume() {
               <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 sm:px-6">
                 <p className="text-sm font-medium text-zinc-300">{resume.fileName}</p>
                 <div className="flex items-center gap-2">
-                  <a
-                    href={resume.file}
-                    download={resume.fileName}
+                  <button
+                    type="button"
+                    onClick={handleDownload}
                     className="rounded-lg px-3 py-1.5 text-xs font-medium text-violet-400 transition-colors hover:bg-white/5 hover:text-violet-300"
                   >
                     Download
-                  </a>
+                  </button>
                   <button
-                  type="button"
-                  onClick={() => setViewerOpen(false)}
-                  className="rounded-lg p-2 text-zinc-400 transition-colors hover:bg-white/5 hover:text-white"
-                  aria-label="Close"
-                >
-                  <X className="size-5" />
-                </button>
+                    type="button"
+                    onClick={() => setViewerOpen(false)}
+                    className="rounded-lg p-2 text-zinc-400 transition-colors hover:bg-white/5 hover:text-white"
+                    aria-label="Close"
+                  >
+                    <X className="size-5" />
+                  </button>
                 </div>
               </div>
 
