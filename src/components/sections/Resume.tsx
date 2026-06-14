@@ -50,7 +50,7 @@ export function Resume() {
 
               <div>
                 <h3 className="text-lg font-semibold text-white sm:text-xl">
-                  {profile.name} — Resume
+                  {profile.name} — ATS Resume
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-400 sm:text-base">
                   {resume.description}
@@ -65,6 +65,8 @@ export function Resume() {
               <MagneticButton
                 href={resume.file}
                 download={resume.fileName}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-r from-violet-600 to-violet-500 px-7 py-3.5 text-sm font-semibold text-white shadow-[0_0_40px_rgba(139,92,246,0.35)] transition-shadow hover:shadow-[0_0_60px_rgba(139,92,246,0.5)]"
               >
                 <span
@@ -114,7 +116,15 @@ export function Resume() {
             >
               <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 sm:px-6">
                 <p className="text-sm font-medium text-zinc-300">{resume.fileName}</p>
-                <button
+                <div className="flex items-center gap-2">
+                  <a
+                    href={resume.file}
+                    download={resume.fileName}
+                    className="rounded-lg px-3 py-1.5 text-xs font-medium text-violet-400 transition-colors hover:bg-white/5 hover:text-violet-300"
+                  >
+                    Download
+                  </a>
+                  <button
                   type="button"
                   onClick={() => setViewerOpen(false)}
                   className="rounded-lg p-2 text-zinc-400 transition-colors hover:bg-white/5 hover:text-white"
@@ -122,6 +132,7 @@ export function Resume() {
                 >
                   <X className="size-5" />
                 </button>
+                </div>
               </div>
 
               <iframe

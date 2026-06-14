@@ -5,7 +5,7 @@ export const profile = {
   subtitle: 'React.js & Node.js',
   tagline: 'Building scalable full-stack',
   taglineAccent: 'apps & AI solutions.',
-  bio: 'Full-Stack Developer skilled in React.js, JavaScript, Node.js, Express.js, and MongoDB — building scalable web applications, RESTful APIs, and AI-powered solutions deployed on Vercel and Render.',
+  bio: 'Full-Stack Developer with expertise in React.js, Node.js, Express.js, and MongoDB — experienced in building responsive UIs, RESTful APIs, and scalable web applications with AI-powered products on Vercel and Render.',
   availability: 'Open to opportunities',
   location: 'Pune, India',
   phone: '+91 9294514076',
@@ -20,10 +20,10 @@ export const profile = {
   ],
 
   resume: {
-    file: '/resume/Utkarsh_Pankar_Resume.docx',
-    fileName: 'Utkarsh_Pankar_Resume.docx',
+    file: '/resume/Utkarsh_Pankar_Resume_ATS.docx',
+    fileName: 'Utkarsh_Pankar_Resume_ATS.docx',
     description:
-      'Full-Stack Developer skilled in React.js, Node.js, Express.js, and MongoDB — with experience building scalable web apps, RESTful APIs, and AI-powered solutions deployed on Vercel and Render.',
+      'Full-Stack Developer with expertise in React.js, Node.js, Express.js, and MongoDB — experienced in responsive UIs, RESTful APIs, and AI-powered products integrated with Gemini and OpenRouter APIs.',
   },
 
   social: {
@@ -70,8 +70,8 @@ export const skills = [
     items: ['Node.js', 'Express.js', 'MongoDB'],
   },
   {
-    category: 'APIs & AI',
-    items: ['REST APIs', 'Gemini API', 'OpenRouter API'],
+    category: 'APIs & AI Integration',
+    items: ['REST APIs', 'Google Gemini API', 'OpenRouter API'],
   },
   {
     category: 'Tools & Platforms',
@@ -82,7 +82,7 @@ export const skills = [
       'Vercel',
       'Render',
       'Cursor',
-      'Claude',
+      'Claude AI',
       'GitHub Copilot',
     ],
   },
@@ -95,12 +95,10 @@ export const experience = [
     company: 'Yslogit',
     period: 'Jan 2025 — Jun 2025',
     highlights: [
-      'Developed responsive and scalable user interfaces using React.js, JavaScript, and Tailwind CSS.',
-      'Implemented new features and enhanced user experience for an e-commerce platform.',
-      'Optimized frontend performance, improving application responsiveness across devices.',
-      'Integrated REST APIs and collaborated with cross-functional teams to deliver high-quality solutions.',
-      'Built reusable React components and maintained a consistent design system, reducing development time for new features.',
-      'Ensured cross-browser compatibility and accessibility standards across all UI components, improving overall product quality.',
+      'Engineered responsive, scalable UI components for a production e-commerce platform using React.js, JavaScript, and Tailwind CSS, ensuring seamless cross-device compatibility.',
+      'Architected a library of reusable React components and maintained a consistent design system, accelerating new-feature delivery and improving code maintainability.',
+      'Collaborated with backend engineers and cross-functional teams to integrate RESTful APIs, enabling end-to-end feature delivery in an agile development environment.',
+      'Optimized frontend performance through code splitting and lazy loading; enforced cross-browser compatibility and WCAG accessibility standards across all UI components.',
     ],
   },
 ]
@@ -116,11 +114,11 @@ export const projects = [
     id: 'invoice-ai',
     title: 'Invoice AI Generator',
     description:
-      'Full-stack AI-powered invoice generation platform that creates professional invoices from plain English using the Google Gemini API.',
+      'Full-stack AI-powered invoice generation platform leveraging Google Gemini API to auto-generate professional invoices from plain-English user input.',
     highlights: [
-      'Secure RESTful API with Node.js, Express.js & MongoDB',
-      'Clerk auth with role-based access control',
-      'Real-time invoice preview & history dashboard',
+      'Secure RESTful API with full CRUD operations via Node.js, Express.js & MongoDB',
+      'Clerk-based authentication with role-based access control',
+      'React.js frontend with real-time invoice preview; deployed on Vercel and Render',
     ],
     tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Clerk', 'Gemini API'],
     liveUrl: 'https://invoice-ai-five-sepia.vercel.app',
@@ -134,11 +132,11 @@ export const projects = [
     id: 'genui',
     title: 'GenUI',
     description:
-      'AI platform that converts natural language prompts into functional React and Tailwind CSS components instantly via OpenRouter API.',
+      'Full-stack generative AI platform that transforms natural language prompts into production-ready React and Tailwind CSS components in real time via OpenRouter API.',
     highlights: [
-      'Live component preview engine with real-time rendering',
-      'Multi-model AI for code gen, optimization & TS conversion',
-      'Generation history managed via Redux Toolkit',
+      'Multi-LLM integration for code generation, optimization, TypeScript conversion & explanation',
+      'Live in-browser component preview engine with Redux Toolkit state management',
+      'Deployed full-stack application on Vercel and Render',
     ],
     tech: [
       'React.js',
